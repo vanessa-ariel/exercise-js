@@ -38,41 +38,12 @@ for (let i = 0; i < size; i++) {
 	matrix.push(cell_list)
 }
 let rand = 'linha'
-for (const [row_index, row] of matrix.entries()) {
-	for (const [cell_index, cell] of row.entries()) {
-		// Para cada celula na tabela,
-		// escute pelo envento de clique.
+for (const row of matrix) {
+	for (const cell of row) {
+		
 		cell.addEventListener("click", event => {
-			// Primeiro tire a pintura
-			// de todos os elementos pintados.
-			//setTimeout(()=>{
-			for (const painted_cell of document.querySelectorAll("td.painted")) {
-			//	painted_cell.classList.remove("painted")
-			}
-		//}, 500)
-
+			cell.classList.add("painted")
 			console.log(rand)
-
-			if (rand === 'linha'){
-
-			// Agora pinte todos os elementos
-			// da mesma linha do elemento atual.
-			//setTimeout(()=>{
-			//}, 1000)
-
-			for (const cell_to_paint of matrix[row_index]) {
-				cell_to_paint.classList.add("painted")
-			} rand = 'coluna'
-			
-			} else{
-				rand='linha'
-
-			// Agora pinte todos os elementos
-			// da mesma coluna do elemento atual.
-				for (const row_to_paint of matrix) {
-				row_to_paint[cell_index].classList.add("painted")
-			}
 		}
-		})
-	}
+	)}
 }
