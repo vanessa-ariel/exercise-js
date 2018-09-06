@@ -5,7 +5,7 @@ const table = document.querySelector("table")
 // Depois defina um tamanho para
 // a nossa tabela. Tamanho significa
 // numero de celulas e colunas.
-const size = 10
+const size = 20
 // Inicial uma lista que ira conter
 // todos os <td>s da pagina organizados
 // como eles estao arganizados na pagina.
@@ -42,8 +42,14 @@ for (const row of matrix) {
 	for (const cell of row) {
 		
 		cell.addEventListener("click", event => {
-			cell.classList.add("painted")
-			console.log(rand)
+			let r = Math.floor(Math.random()*256)
+			let g = Math.floor(Math.random()*256)
+			let b = Math.floor(Math.random()*256)
+
+			const color = `rgba(${r},${g},${b},1)`
+			cell.style.backgroundColor = color
 		}
 	)}
 }
+
+const colors=[]
